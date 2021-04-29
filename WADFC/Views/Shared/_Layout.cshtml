@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="UFC fights from 2020-2021">
+    <meta name="keywords" content="UFC,fights,fighters,FightNight">
+    <meta name="author" content="Girts Jermacans">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/mobile.css" />
+    <link rel="stylesheet" media="only screen and (min-width : 720px)" href="~/css/desktop.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WADFC</h1>
+        </header>
+        <main>
+            <div class="searchBurgerLine">
+                <div class="hideForDesktop">
+                    <form action="" id="unknownSearch">
+                        <input type="text" name="searchString" id="SearchString"/>
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="burgerMenu">
+                    <div class="bars">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Home" asp-action="AllEvents">Events</a></li>
+                    <li><a asp-controller="Home" asp-action="AllFighters">Fighters</a></li>
+                    <li><a asp-controller="Home" asp-action="AdvancedSearch">Search</a></li>
+                    <li><a asp-controller="CMS" asp-action="Index">CMS</a></li>
+                </ul>
+            </nav>
+            <h1 class="pageHeading">@ViewData["PageHeading"]</h1>
+            @RenderBody()
+        </main>
+        <footer>
+            <p>&copy; 2021, Girts Jermacans</p>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    @RenderSection("MyScripts", required: false)
+</body>
+
+</html>

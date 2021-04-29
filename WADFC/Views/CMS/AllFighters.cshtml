@@ -1,0 +1,21 @@
+﻿
+@{ Layout = "_CMS"; }
+<h1>All Fighters</h1>
+
+<p><a asp-controller="CMS" asp-action="AddFighter" class="add">Add Fighter</a></p>
+
+<table class="table">
+    <tr>
+        <td>Fighter</td>
+        <td>Edit</td>
+    </tr>
+    @foreach (var item in Model)
+
+    {
+        <tr>
+            <td><a asp-controller="Home" asp-action="Fighter" asp-route-id="@item.FighterID">@item.FirstName @item.Surname</a></td>
+            <td><p><a asp-controller="CMS" asp-action="EditFighter" asp-route-id="@item.FighterID" class="edit">Edit</a></p></td>
+        </tr>
+}
+
+</table>

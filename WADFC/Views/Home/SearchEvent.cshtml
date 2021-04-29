@@ -1,0 +1,40 @@
+﻿
+@{ ViewData["Title"] = "Search Results | WADFC"; }
+
+
+<div class="hideForMobile">
+    <form id="formDesktopEvents2" action="SearchEvent">
+        <input type="text" name="searchString" id="SearchString" placeholder="event"/>
+        <button type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+</div>
+<div id="errorForForm"></div>
+
+@if (Model != null)
+{
+    @foreach (var item in Model)
+    {
+        <div class="events">
+            <a asp-controller="Home" asp-action="Event" asp-route-id="@item.EventID" />
+            <img src="~/images/@item.EventImage" />
+            <div class="eventsText">
+                <h1>@item.EventTitle</h1>
+                <p>@item.Location          Date: @item.Date</p>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.Count == 0)
+    {
+        <p>Sorry no matches.</p>
+    }
+}
+
+
+@section MyScripts {
+    <script src="~/js/main.js"></script>
+    <script src="~/js/searchEvent.js"></script>
+}

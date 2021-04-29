@@ -1,0 +1,85 @@
+﻿
+@model WADFC.Models.FightDetails
+
+@{
+    Layout = "_CMS";
+}
+
+@{
+    int fighterID = Model.NewFightForm.FightID;
+
+}
+
+<h1>Update Fight</h1>
+
+<form id="formUpdateFight" asp-controller="CMS" asp-action="UpdateFight" asp-route-id="@Model.EventID" asp-route-id2="@Model.FightID">
+
+    <div>
+        <label asp-for="@Model.NewFightForm.FighterAID">Fighter A</label>
+        <select asp-for="@Model.NewFightForm.FighterAID">
+            @foreach (var item in Model.FightersList)
+            {
+                if (item.FighterID == @Model.FighterA.FighterID)
+                {
+                    <option value="@item.FighterID" selected>@item.FirstName @item.Surname</option>
+                }
+                else
+                {
+                    <option value="@item.FighterID">@item.FirstName @item.Surname</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="@Model.NewFightForm.FighterBID">Fighter B</label>
+        <select asp-for="@Model.NewFightForm.FighterBID">
+            @foreach (var item in Model.FightersList)
+            {
+                if (item.FighterID == @Model.FighterB.FighterID)
+                {
+                    <option value="@item.FighterID" selected>@item.FirstName @item.Surname</option>
+                }
+                else
+                {
+                    <option value="@item.FighterID">@item.FirstName @item.Surname</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="@Model.NewFightForm.Division">Division</label>
+        <input type="text" asp-for="@Model.NewFightForm.Division" />
+        <span asp-validation-for="@Model.NewFightForm.Division" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="@Model.NewFightForm.Winner">Winner</label>
+        <input type="text" asp-for="@Model.NewFightForm.Winner" />
+        <span asp-validation-for="@Model.NewFightForm.Winner" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="@Model.NewFightForm.Method">Method</label>
+        <input type="text" asp-for="@Model.NewFightForm.Method" />
+        <span asp-validation-for="@Model.NewFightForm.Method" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="@Model.NewFightForm.Round">Round</label>
+        <input type="number" asp-for="@Model.NewFightForm.Round" />
+        <span asp-validation-for="@Model.NewFightForm.Round" class="error"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Update" class="add" />
+    </div>
+
+</form>
+
+<div id="errorForForm"></div>
+
+@section MyScripts {
+    <script src="~/js/cmsUpdateFightForm.js"></script>
+}

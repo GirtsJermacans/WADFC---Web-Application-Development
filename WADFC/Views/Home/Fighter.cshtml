@@ -1,0 +1,38 @@
+﻿
+@{ ViewData["Title"] = Model[0].MainFighterName + " | WADFC";
+}
+
+<div class="fighterProfile">
+    <h1>@Model[0].MainFighterName</h1>
+    <h2>@Model[0].Record</h2>
+    <p>@Model[0].Characteristics</p>
+    <p>@Model[0].Stance</p>
+</div>
+
+@if (Model[0].EventTitle != "NONE")
+{
+    <div class="fight">
+        @foreach (var item in Model)
+        {
+            <div class="fightItem">
+                <h2>@item.EventTitle</h2>
+                <p>@item.FighterAName vs @item.FighterBName</p>
+                <p> Winner: @item.WinnerName</p>
+                <p> Round: @item.Round</p>
+                <p> Method: @item.Method</p>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="fight">
+        <div class="fightItem">
+            <h2>No Fights Recorded</h2>
+        </div>
+    </div>
+}
+
+@section MyScripts {
+    <script src="~/js/main.js"></script>
+}

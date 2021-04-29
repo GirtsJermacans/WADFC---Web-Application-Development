@@ -1,0 +1,21 @@
+﻿
+@model WADFC.Models.FightDetails
+@{
+    Layout = "_CMS";
+    ViewData["Title"] = "Delete Fight";
+}
+
+<form method="post">
+
+    <input type="hidden" name="FightID" value="@Model.FightID" />
+
+    <h1>Delete Fight: </h1>
+    <p>@Model.FighterA.FirstName @Model.FighterA.Surname vs @Model.FighterB.FirstName @Model.FighterB.Surname</p>
+    <p>Winner: @Model.Winner</p>
+    <p>Division: @Model.Divisions</p>
+
+    <p><input type="submit" value="Delete" class="delete" /></p>
+
+    <p><a asp-controller="CMS" asp-action="Index" class="add">Keep</a><br></p>
+
+</form>

@@ -1,0 +1,188 @@
+﻿
+.container {
+    margin: auto;
+    max-width: 1200px;
+    min-width: 600px;
+}
+
+header {
+    background-image: url(../images/header_desktopImage.PNG);
+    height: 300px;
+    padding-left: 0;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 4rem;
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    display: inline;
+    font-size: 100px;
+}
+
+.pageHeading {
+    text-align: center;
+}
+
+nav {
+    display: block;
+}
+
+nav li a:hover {
+    color: #e8ff7f;
+    text-decoration: underline;
+}
+
+nav ul {
+    padding-left: 0;
+    flex-direction: row;
+}
+
+nav ul li {
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-left: 1px solid #000;
+}
+
+nav li:first-child {
+    border-left: none;
+}
+
+nav li:last-child {
+    margin-left: auto;
+    border-left: none;
+    padding-right: 30px;
+}
+
+.burgerMenu {
+    display: none;
+}
+
+input[type="text"] {
+    width: auto;
+    padding: 8px 5px;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+}
+
+.hideForMobile {
+    display: block;
+}
+
+.hideForDesktop {
+    display: none;
+}
+
+
+footer {
+    text-align: center;
+}
+
+footer p {
+    margin: auto;
+    color: #fff;
+    background-color: #d58b53;
+    padding: 14px 16px;
+}
+
+.events {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; 
+    margin: 20px 0px 20px 0px;
+}
+
+.events img {
+    border-radius:5px;
+    width: 65%;
+    min-width: 700px;
+    max-width: 960px;
+}
+
+.events:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.eventsText {
+    padding: 2px 16px;
+}
+
+.fight {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.fight h2, p {
+    padding: 2px 16px;
+}
+
+.fightItem {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 20px 10px 20px 10px;
+    flex-basis: 45%;
+}
+
+.fightItem:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.fighter {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+
+.fighter h2, p {
+    padding: 2px 16px;
+}
+
+.fighterItem {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 20px 10px 20px 10px;
+    flex-basis: 45%;
+}
+
+.fighterItem:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.fighterProfile {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 20px 10px 20px 10px;
+    text-align: center;
+}
+
+.fighterProfile h1, h2, p {
+    padding: 2px 16px;
+}
+
+#targetSelection2, #targetSelection3 {
+    width: 40%;
+}
+
+#searchFighterByRecord {
+    width:40%;
+}
+
+.indexPageCenter {
+    margin-top: 8%;
+}
+
+.indexPageCenter h1 {
+    font-size: 60px;
+}

@@ -1,0 +1,31 @@
+﻿
+
+@{ ViewData["Title"] = "Event | WADFC";
+    ViewData["PageHeading"] = @Model[0].EventTitle; }
+
+
+@if (Model[0].FighterAName == "NONE")
+{
+    <div class="fight">
+        <h2>No Fights Announced Yet</h2>
+    </div>
+}
+else
+{
+    <div class="fight">
+        @foreach (var item in Model)
+        {
+            <div class="fightItem">
+                <h2>@item.FighterAName vs @item.FighterBName</h2>
+                <p> Winner: @item.WinnerName</p>
+                <p> Round: @item.Round</p>
+                <p> Method: @item.Method</p>
+            </div>
+         }
+    </div>
+}
+
+
+@section MyScripts {
+    <script src="~/js/main.js"></script>
+}

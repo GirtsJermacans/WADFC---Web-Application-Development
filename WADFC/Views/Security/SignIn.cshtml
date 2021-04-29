@@ -1,0 +1,30 @@
+﻿@model SignIn
+@{
+    Layout = "_CMS";
+}
+<h2 class="fullWidth">Sign In</h2>
+<section>
+    <form id="formSignIn" asp-controller="Security" asp-action="SignIn" method="post">
+        <div>
+            <label asp-for="UserName"></label>
+            <input id="UserName" type="text" asp-for="UserName" />
+        </div>
+        <div>
+            <label asp-for="Password"></label>
+            <input id="Password" type="password" asp-for="Password" />
+        </div>
+        <div>
+            <button type="submit" class="add">Sign In</button>
+        </div>
+        <div asp-validation-summary="All" class="message"></div>
+
+        <h3><a asp-controller="security" asp-action="register">Create New User Account</a></h3>
+
+    </form>
+
+    <div id="errorForForm"></div="errorForForm">
+</section>
+
+@section MyScripts {
+    <script src="~/js/cmsSignInForm.js"></script>
+}

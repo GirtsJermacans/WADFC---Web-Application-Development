@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WADFC", "WADFC\WADFC.csproj", "{4CFFA726-C8A4-4372-B15E-43A7783C7658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CFFA726-C8A4-4372-B15E-43A7783C7658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CFFA726-C8A4-4372-B15E-43A7783C7658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CFFA726-C8A4-4372-B15E-43A7783C7658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CFFA726-C8A4-4372-B15E-43A7783C7658}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55072421-24C3-4FC4-B36C-509E10DF5CBD}
+	EndGlobalSection
+EndGlobal

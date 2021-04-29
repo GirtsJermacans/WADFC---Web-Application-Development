@@ -1,0 +1,43 @@
+﻿
+@model WADFC.Models.EventForm
+@{
+    Layout = "_CMS";
+}
+<h1>Add Event</h1>
+
+<form id="formAddEvent" asp-controller="CMS" asp-action="AddEvent">
+    <div>
+        <label asp-for="EventTitle">Event Title</label>
+        <input type="text" asp-for="EventTitle" />
+        <span asp-validation-for="EventTitle" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Location">Location</label>
+        <input type="text" asp-for="Location" />
+        <span asp-validation-for="Location" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="EventImage">Event Image</label>
+        <input type="text" asp-for="EventImage" />
+        <span asp-validation-for="EventImage" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Date">Event Date</label>
+        <input type="date" asp-for="Date" />
+        <span asp-validation-for="Date" class="error"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Add" class="add" />
+    </div>
+
+</form>
+
+<div id="errorForForm"></div>
+
+@section MyScripts {
+    <script src="~/js/cmsAddEventForm.js"></script>
+}

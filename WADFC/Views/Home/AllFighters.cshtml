@@ -1,0 +1,30 @@
+﻿
+@{ ViewData["Title"] = "Fighers | WADFC"; }
+
+<div class="hideForMobile">
+    <form id="formDesktopFighters1" action="SearchFighter">
+        <input type="text" name="searchString" id="SearchString" placeholder="name" />
+        <button type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+</div>
+<div id="errorForForm"></div>
+
+<div class="fighter">
+    @foreach (var item in Model)
+    {
+        <div class="fighterItem">
+            <a asp-controller="Home" asp-action="Fighter" asp-route-id="@item.FighterID" />
+            <h2>@item.FirstName @item.Surname</h2>
+            <h2>Record: @item.Win-@item.Loss-@item.Draw-@item.NoContest</h2>
+            <p>Weight: @item.Weight lbs  Height: @item.Height cm  Reach: @item.Reach inches</p>
+            <p>Stance: @item.Stance</p>
+        </div>
+    }
+</div>
+
+@section MyScripts {
+    <script src="~/js/main.js"></script>
+    <script src="~/js/fighters.js"></script>
+}

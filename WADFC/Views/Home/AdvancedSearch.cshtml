@@ -1,0 +1,131 @@
+﻿@model WADFC.Models.Search
+
+@{
+
+    ViewData["Title"] = "Advanced Search | WADFC";
+
+}
+
+<section class="centerSearch">
+    <form id="myForm" asp-action="AdvancedSearch" method="get">
+        <h1>Search</h1>
+        <div>
+
+            <!-- Select If You want to search for Event or Fighter-->
+            <label for="searchFor">Search For: </label>
+            <select id="targetSelection">
+                @foreach (var item in (List<string>)@ViewData["SearchForSelection"])
+                {
+                    <option value="@item">@item</option>
+                }
+
+            </select>
+            <br /><br />
+            <!-- If searching or Event -->
+            <!-- Select if you want to search Event by Event Title or Fighter Name-->
+            <div id="eventSearchingOptions">
+                <label for="searchEventCriteria">
+                    <select id="targetSelection2">
+                        @foreach (var item in (List<string>)ViewData["SelectionForEvent"])
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                </label>
+                <br /><br />
+                <div id="searchEventByEventTitle">
+                    <input type="text" name="EventTitleString" id="EventTitleString" placeholder="Event Title" />
+                </div>
+                <div id="searchEventByFighterName" hidden>
+                    <input type="text" name="FighterNameString" id="FighterNameString" placeholder="Fighter Name" />
+                </div>
+            </div>
+
+            <!-- If searching for Fighter -->
+            <!-- Select how you want to search for a fighter-->
+            <div id="fighterSearchingOptions" hidden>
+                <label for="searchFighterCriteria">
+                    <select id="targetSelection3">
+                        @foreach (var item in (List<string>)ViewData["SelectionForFighter"])
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                </label>
+            </div>
+
+            <br /><br />
+            <div id="searchFighterByFighterName" hidden>
+                <label for=""></label>
+                <input type="text" name="FighterNameStringFighter" id="FighterNameStringFighter" placeholder="Fighter Name" />
+            </div>
+
+            <div id="searchFighterByRecord" hidden>
+                <label for="Win">Win:    </label>
+                <input type="number" name="Win" id="Win" min="0" /> <br />
+                <label for="Loss">Loss: </label>
+                <input type="number" name="Loss" id="Loss" min="0" /> <br />
+                <label for="Draw">Draw: </label>
+                <input type="number" name="Draw" id="Draw" min="0" /> <br />
+                <label for="NoContest">No Contest: </label>
+                <input type="number" name="NoContest" id="NoContest" min="0" /> <br />
+            </div>
+            <div id="errorForJSForm"></div>
+
+            <p>
+                <input type="submit" value="Filter" class="filter" />
+            </p>
+        </div>
+    </form>
+</section>
+
+    @if (Model.eventsModel != null)
+    {
+        @foreach (var item in Model.eventsModel)
+        {
+            <div class="events">
+                <a asp-controller="Home" asp-action="Event" asp-route-id="@item.EventID" />
+                <img src="~/images/@item.EventImage" />
+                <div class="eventsText">
+                    <h1>@item.EventTitle</h1>
+                    <p>@item.Location          Date: @item.Date</p>
+                </div>
+            </div>
+        }
+
+        @if (Model.eventsModel.Count == 0)
+        {
+            <p>Sorry no matches.</p>
+        }
+
+
+
+    }
+    else if (Model.fightersModel != null)
+    {
+        <div class="fighter">
+            @foreach (var item in Model.fightersModel)
+            {
+                <div class="fighterItem">
+                    <a asp-controller="Home" asp-action="Fighter" asp-route-id="@item.FighterID" />
+                    <h2>@item.FirstName @item.Surname</h2>
+                    <h2>Record: @item.Win-@item.Loss-@item.Draw-@item.NoContest</h2>
+                    <p>Weight: @item.Weight lbs  Height: @item.Height cm  Reach: @item.Reach inches</p>
+                    <p>Stance: @item.Stance</p>
+                </div>
+            }
+
+            @if (Model.fightersModel.Count == 0)
+            {
+                <p>Sorry no matches.</p>
+            }
+        </div>
+    }
+
+@section MyScripts {
+    <script src="~/js/hideSearch.js"></script>
+    <script src="~/js/advancedSearch.js"></script>
+    <script src="~/js/advancedSearchEvent.js"></script>
+    <script src="~/js/advancedSearchFighter.js"></script>
+
+}

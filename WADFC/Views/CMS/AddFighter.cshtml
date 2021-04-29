@@ -1,0 +1,83 @@
+﻿
+@model WADFC.Models.FighterForm
+@{
+    Layout = "_CMS";
+}
+<h1>Add Fighter</h1>
+<div id="errorForForm"></div>
+<form id="formAddFighter" asp-controller="CMS" asp-action="AddFighter">
+    <div>
+        <label asp-for="FirstName">First Name</label>
+        <input type="text" asp-for="FirstName" />
+        <span asp-validation-for="FirstName" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Surname">Surname</label>
+        <input type="text" asp-for="Surname" />
+        <span asp-validation-for="Surname" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Height">Height</label>
+        <input type="number" value="0" min="100" max="300" asp-for="Height" />
+        <span asp-validation-for="Height" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Weight">Weight</label>
+        <input type="number" value="0" min="45" max="120" asp-for="Weight" />
+        <span asp-validation-for="Weight" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Reach">Reach</label>
+        <input type="number" value="0" min="35" max="100" asp-for="Reach" />
+        <span asp-validation-for="Reach" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Stance">Stance</label>
+        <input type="text" value="-" asp-for="Stance" />
+        <span asp-validation-for="Stance" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Win">Wins</label>
+        <input type="number" value="0" min="0" asp-for="Win" />
+        <span asp-validation-for="Win" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Loss">Losses</label>
+        <input type="number" value="0" min="0" asp-for="Loss" />
+        <span asp-validation-for="Loss" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Draw">Draws</label>
+        <input type="number" value="0" min="0" asp-for="Draw" />
+        <span asp-validation-for="Draw" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="NoContest">No Contests</label>
+        <input type="number" value="0" min="0" asp-for="NoContest" />
+        <span asp-validation-for="NoContest" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="DOB">Date Of Birth</label>
+        <input type="date" min="1950-01-01" max="2021-01-01" asp-for="DOB" />
+        <span asp-validation-for="DOB" class="error"></span>
+    </div>
+
+    <div>
+        <input type="submit" value="Add" class="add" />
+    </div>
+
+</form>
+
+@section MyScripts {
+    <script src="~/js/cmsAddFighterForm.js"></script>
+}

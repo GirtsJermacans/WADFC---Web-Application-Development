@@ -1,0 +1,47 @@
+﻿
+@model WADFC.Models.EventForm
+@{
+    Layout = "_CMS";
+}
+<h1>@Model.EventTitle</h1>
+
+
+<form id="formUpdateEvent" asp-controller="CMS" asp-action="UpdateEvent">
+    <input type="hidden" name="EventID" value="@Model.EventID" />
+    <div>
+        <label>Event Title</label>
+        <input asp-for="EventTitle" />
+        <span asp-validation-for="EventTitle" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Location">Location</label>
+        <input type="text" asp-for="Location" />
+        <span asp-validation-for="Location" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="EventImage">Event Image</label>
+        <input type="text" asp-for="EventImage" />
+        <span asp-validation-for="EventImage" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Date">Date</label>
+        <input type="date" asp-for="Date" />
+        <span asp-validation-for="Date" class="error"></span>
+    </div>
+
+    <div id="errorForForm"></div>
+
+    <div>
+        <input type="submit" value="Update" class="edit" />
+    </div>
+
+</form>
+
+<p><a asp-controller="CMS" asp-action="AllFights" asp-route-id="@Model.EventID" class="open">Fights</a></p>
+
+@section MyScripts {
+    <script src="~/js/cmsUpdateEventForm.js"></script>
+}

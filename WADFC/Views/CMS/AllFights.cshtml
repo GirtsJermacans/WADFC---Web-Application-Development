@@ -1,0 +1,30 @@
+﻿
+@{ Layout = "_CMS"; }
+<h1>@Model[0].EventTitle fights</h1>
+
+<p><a asp-controller="CMS" asp-action="AddFight" asp-route-id="@Model[0].EventID" class="add">Add Fight</a></p>
+
+@if (Model[0].FighterAName != "NONE")
+{
+    <table class="table">
+        <tr>
+            <td>Fight</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        @foreach (var item in Model)
+
+        {
+            <tr>
+                <td>@item.FighterAName vs @item.FighterBName</td>
+                <td><p><a asp-controller="CMS" asp-action="UpdateFight" asp-route-id="@item.FightID" class="edit">Update</a></p></td>
+                <td><p><a asp-controller="CMS" asp-action="DeleteFight" asp-route-id="@item.FightID" class="delete">Delete</a></p></td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <p>No Fights</p>
+}
